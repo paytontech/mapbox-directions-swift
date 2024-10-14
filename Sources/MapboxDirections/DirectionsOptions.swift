@@ -561,7 +561,9 @@ open class DirectionsOptions: Codable {
         guard waypointIndices.count < waypoints.count else {
             return nil
         }
-        return waypointIndices.map(String.init(describing:)).joined(separator: ";")
+        return waypointIndices.map({ it in
+            "\(it)"
+        }).joined(separator: ";")
     }
     
     private var waypointNames: String? {
