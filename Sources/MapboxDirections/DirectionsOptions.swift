@@ -554,9 +554,9 @@ open class DirectionsOptions: Codable {
     }
     
     private var waypointIndices: String? {
-        var waypointIndices = waypoints.indices { (waypoint: Waypoint) -> Bool in
+        var waypointIndices = waypoints.indices(where: { (waypoint: Waypoint) -> Bool in
             return waypoint.separatesLegs
-        }
+        })
         waypointIndices.insert(waypoints.startIndex)
         waypointIndices.insert(waypoints.endIndex - 1)
         
